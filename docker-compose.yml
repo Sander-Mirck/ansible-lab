@@ -1,0 +1,84 @@
+version: '3.8'
+services:
+  ansible-control:
+    build:
+      context: .
+      dockerfile: Dockerfile.ansible-control
+    container_name: ansible-control
+    networks:
+      - ansible_lab_net
+    tty: true
+
+  managed-node-1:
+    build:
+      context: .
+      dockerfile: Dockerfile.managed-node
+    container_name: managed-node-1
+    networks:
+      - ansible_lab_net
+    depends_on:
+      - ansible-control
+
+  managed-node-2:
+    build:
+      context: .
+      dockerfile: Dockerfile.managed-node
+    container_name: managed-node-2
+    networks:
+      - ansible_lab_net
+    depends_on:
+      - ansible-control
+
+  managed-node-3:
+    build:
+      context: .
+      dockerfile: Dockerfile.managed-node
+    container_name: managed-node-3
+    networks:
+      - ansible_lab_net
+    depends_on:
+      - ansible-control
+
+  managed-node-4:
+    build:
+      context: .
+      dockerfile: Dockerfile.managed-node
+    container_name: managed-node-4
+    networks:
+      - ansible_lab_net
+    depends_on:
+      - ansible-control
+
+  managed-node-5:
+    build:
+      context: .
+      dockerfile: Dockerfile.managed-node
+    container_name: managed-node-5
+    networks:
+      - ansible_lab_net
+    depends_on:
+      - ansible-control
+
+  managed-node-6:
+    build:
+      context: .
+      dockerfile: Dockerfile.managed-node
+    container_name: managed-node-6
+    networks:
+      - ansible_lab_net
+    depends_on:
+      - ansible-control
+
+  managed-node-7:
+    build:
+      context: .
+      dockerfile: Dockerfile.managed-node
+    container_name: managed-node-7
+    networks:
+      - ansible_lab_net
+    depends_on:
+      - ansible-control
+
+networks:
+  ansible_lab_net:
+    external: true
